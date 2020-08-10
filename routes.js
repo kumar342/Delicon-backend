@@ -7,7 +7,11 @@ const {
   reservationDeleteById,
   reservationUpdateById,
 } = require("./controllers/index");
+const { login, register, users } = require("./controllers/user");
 
+routes.get("/", users);
+routes.post("/login", login);
+routes.post("/register", register);
 routes.get("/totalReservations", totalReservations);
 routes.get("/totalReservations/:Id", totalReservationsById);
 routes.post("/add", addReservation);
