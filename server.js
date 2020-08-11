@@ -10,7 +10,12 @@ app.use(cors());
 const db =
   "mongodb+srv://sample:sample@nodescheduler.g2alh.mongodb.net/reservation?retryWrites=true&w=majority";
 const connect = mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
